@@ -3,132 +3,668 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidad de KRYOX</title>
+    <title>KRYOX - Entrenamientos, Fútbol y Salud</title>
+    <meta name="description" content="KRYOX es tu aplicación definitiva para registrar entrenamientos de gimnasio, estadísticas de fútbol, hidratación y peso. Todo privado y guardado localmente.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --black: #000000;
+            --dark-blue-bg: #050B18; /* Deep obsidian blue from app_theme.dart */
+            --dark-blue-card: #0E1626; /* Navy card background from app_theme.dart */
+            --dark-pink: #E21B70; /* Athletic pink from app_theme.dart */
+            --gold: #D4AF37; /* Premium gold from app_theme.dart */
+            --white: #FFFFFF;
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--black);
+            background-image: radial-gradient(circle at 50% -20%, var(--dark-blue-bg) 0%, var(--black) 80%);
+            color: var(--text-primary);
             line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fafafa;
+            overflow-x: hidden;
         }
-        .container {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+        /* Header Navigation */
+        header {
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
-        h1 {
-            color: #1a73e8;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        h2 {
-            color: #202124;
-            margin-top: 30px;
+
+        .logo span {
+            color: var(--dark-pink);
         }
-        h3 {
-            color: #5f6368;
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
         }
-        hr {
-            border: 0;
-            height: 1px;
-            background: #e0e0e0;
-            margin: 20px 0;
+
+        nav {
+            display: flex;
+            gap: 30px;
         }
-        ul {
-            padding-left: 20px;
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color var(--transition-speed);
+            position: relative;
+            padding: 5px 0;
         }
-        .footer {
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #70757a;
+
+        nav a:hover, nav a.active {
+            color: var(--white);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--dark-pink);
+            border-radius: 2px;
+        }
+
+        /* Language Switcher Button Style */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 5px 12px;
+            border-radius: 18px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .lang-btn.active {
+            background-color: var(--dark-pink);
+            color: var(--white);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding: 150px 5% 80px 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--dark-pink);
+            filter: blur(150px);
+            opacity: 0.15;
+            top: 25%;
+            z-index: -1;
+        }
+
+        .tagline {
+            background: rgba(226, 27, 112, 0.1);
+            color: var(--dark-pink);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(226, 27, 112, 0.2);
+            display: inline-block;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.15;
+            max-width: 850px;
+            margin-bottom: 25px;
+            color: var(--white);
+        }
+
+        h1 span {
+            background: linear-gradient(135deg, var(--white) 30%, var(--dark-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background-color: var(--dark-pink);
+            color: var(--white);
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 20px rgba(226, 27, 112, 0.3);
+            transition: all var(--transition-speed);
+            border: 1px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            background-color: #c91261;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(226, 27, 112, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all var(--transition-speed);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 100px 5%;
+            background-color: rgba(5, 11, 24, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--dark-blue-card);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(226, 27, 112, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--dark-pink), var(--gold));
+            opacity: 0;
+            transition: opacity var(--transition-speed);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: rgba(226, 27, 112, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: var(--dark-pink);
+        }
+
+        .feature-card:nth-child(even) .icon-wrapper {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+        }
+
+        .feature-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.35rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Privacy Focus Banner */
+        .privacy-banner {
+            padding: 100px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner-content {
+            background: linear-gradient(135deg, var(--dark-blue-card) 0%, rgba(5, 11, 24, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 60px 40px;
+            max-width: 1000px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+        }
+
+        .banner-text {
+            flex: 1;
+        }
+
+        .banner-text h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .banner-text p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+        }
+
+        .badge-lock {
+            width: 100px;
+            height: 100px;
+            background: rgba(214, 175, 55, 0.1);
+            border: 1px solid rgba(214, 175, 55, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #02040a;
+            padding: 60px 5% 30px 5%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-logo span {
+            color: var(--dark-pink);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            color: rgba(148, 163, 184, 0.4);
+            font-size: 0.85rem;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 900px) {
+            .nav-container {
+                gap: 20px;
+            }
+            nav {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .banner-content {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 40px 25px;
+            }
+            .badge-lock {
+                margin: 0 auto;
+            }
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            .hero {
+                padding-top: 180px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Política de Privacidad de KRYOX</h1>
-        <p><strong>Última actualización: 15 de junio de 2026</strong></p>
-        
-        <p>KRYOX (en adelante, "la Aplicación") es una herramienta de registro de entrenamientos, partidos de fútbol, control de hidratación y peso corporal. Respetamos y protegemos la privacidad de nuestros usuarios. Esta Política de Privacidad describe cómo se recopilan, utilizan y protegen los datos en la Aplicación.</p>
-        
-        <hr>
 
-        <h2>1. Recopilación y Uso de la Información</h2>
-        
-        <h3>A. Almacenamiento Local de Datos</h3>
-        <p>Toda la información que registras en la Aplicación se almacena de forma <strong>local y exclusiva en tu dispositivo</strong> a través de una base de datos privada:</p>
-        <ul>
-            <li><strong>Entrenamientos:</strong> Ejercicios, series, repeticiones, peso levantado y notas asociadas.</li>
-            <li><strong>Fútbol:</strong> Partidos registrados, goles, asistencias, calificaciones y estadísticas de juego.</li>
-            <li><strong>Hábitos y Salud:</strong> Registro de consumo de agua (hidratación) y peso corporal diario/semanal.</li>
-        </ul>
-        <p>Esta información permanece en el almacenamiento seguro de tu dispositivo móvil y nosotros <strong>no tenemos acceso</strong> a ella.</p>
-
-        <h3>B. Copias de Seguridad en Google Drive (Opcional)</h3>
-        <p>La Aplicación ofrece una función para respaldar tus datos en la nube:</p>
-        <ul>
-            <li>Si decides activar el servicio de <strong>Respaldo en la Nube</strong>, se te solicitará iniciar sesión con tu cuenta de Google.</li>
-            <li>La Aplicación subirá una copia de tu base de datos local a tu propia cuenta personal de <strong>Google Drive</strong>, específicamente dentro de la carpeta segura destinada a datos de aplicaciones (<code>appDataFolder</code>).</li>
-            <li>Este respaldo es privado y solo tú puedes acceder a él. Nosotros <strong>no recopilamos, leemos ni almacenamos</strong> tu información, tus credenciales de inicio de sesión o tus archivos de respaldo en ningún servidor externo.</li>
-        </ul>
-
-        <h3>C. Datos de Salud y Actividad Física (Health & Fitness Data)</h3>
-        <p>Los datos relacionados con tu actividad física, entrenamientos, hidratación y peso corporal se consideran datos personales sensibles y se tratan con los niveles de seguridad más altos. Estos datos se procesan y almacenan de forma <strong>estrictamente local</strong> en tu dispositivo (y de forma opcional en tu espacio privado de Google Drive si decides activar las copias de seguridad). <strong>KRYOX no comparte, transmite, vende ni utiliza esta información con fines comerciales, publicitarios o de análisis de terceros.</strong></p>
-
-        <h3>D. Procesamiento de Suscripciones y Compras (Proveedores de Servicios de Pago)</h3>
-        <p>Para habilitar las funciones Pro a través de un modelo freemium, la Aplicación utiliza servicios de facturación integrados:</p>
-        <ul>
-            <li><strong>Google Play Billing:</strong> Las transacciones y pagos se procesan de forma segura directamente a través del sistema de facturación de Google Play Store.</li>
-            <li><strong>Proveedores de Verificación de Recibos (RevenueCat):</strong> Si la Aplicación utiliza un servicio de terceros como RevenueCat para validar el estado de tu suscripción, se podrán recopilar metadatos técnicos de la transacción (como el identificador de la compra, fecha de vencimiento y estado activo). Estos datos se utilizan únicamente con el fin de validar y mantener activa tu suscripción Pro. Ninguno de estos servicios externos recopila ni tiene acceso a tus datos de salud, entrenamientos, peso o hidratación.</li>
-        </ul>
-
-        <hr>
-
-        <h2>2. Permisos del Dispositivo</h2>
-        <p>Para funcionar correctamente, la Aplicación solicita los siguientes permisos en Android:</p>
-        <ul>
-            <li><strong>Acceso a Internet (<code>INTERNET</code>):</strong> Requerido únicamente para conectar con Google Drive y realizar copias de seguridad o restauraciones de tus datos.</li>
-            <li><strong>Permiso de Notificaciones (<code>POST_NOTIFICATIONS</code>):</strong> Requerido para enviarte alertas y recordatorios diarios sobre tu hidratación y control semanal de peso.</li>
-            <li><strong>Permiso de Inicio (<code>RECEIVE_BOOT_COMPLETED</code>):</strong> Requerido para volver a configurar tus recordatorios de hidratación automáticamente si tu teléfono se reinicia.</li>
-        </ul>
-
-        <hr>
-
-        <h2>3. Intercambio y Divulgación de Datos</h2>
-        <p><strong>No compartimos, vendemos, alquilamos ni divulgamos</strong> ninguno de tus datos personales o de uso con terceras empresas ni anunciantes. Toda la transmisión de datos ocurre de forma directa y cifrada entre tu dispositivo y los servidores de Google (al usar la sincronización de Google Drive).</p>
-
-        <hr>
-
-        <h2>4. Retención y Eliminación de Datos</h2>
-        <p>Dado que todos tus datos se almacenan localmente en tu dispositivo o en tu espacio personal de Google Drive, tienes control absoluto sobre ellos:</p>
-        
-        <h3>Solicitud de Eliminación de Cuenta y Datos Asociados</h3>
-        <p>Si deseas solicitar la eliminación definitiva de tu cuenta y los datos de copia de seguridad asociados a KRYOX, puedes hacerlo de las siguientes maneras:</p>
-        <ul>
-            <li><strong>Borrado Selectivo en la App:</strong> Puedes eliminar de forma individual cualquier registro específico (como rutinas de gimnasio, entrenamientos del historial, registros de peso corporal, consumo de agua o partidos de fútbol) directamente desde la pantalla correspondiente dentro de la Aplicación en cualquier momento, sin necesidad de solicitar la baja de tu cuenta o eliminar el resto de tu información.</li>
-            <li><strong>Desde la Aplicación:</strong> Puedes desconectar tu cuenta de Google desde la configuración de perfil de la Aplicación. Esto revocará el acceso a tu espacio de Google Drive y podrás borrar los archivos de respaldo directamente.</li>
-            <li><strong>Eliminación Local:</strong> Para borrar toda tu información local de entrenamientos, peso e hidratación, basta con desinstalar la Aplicación desde los ajustes de tu dispositivo móvil.</li>
-            <li><strong>Solicitud de Eliminación por Correo:</strong> Puedes solicitar la eliminación de tu cuenta vinculada y la copia de seguridad de la nube enviando un correo electrónico a nuestro buzón de atención al desarrollador indicado en la Play Store. Procesaremos tu solicitud y eliminaremos de manera definitiva los archivos de respaldo de tu Google Drive en un plazo de 72 horas.</li>
-        </ul>
-
-        <hr>
-
-        <h2>5. Cambios a esta Política de Privacidad</h2>
-        <p>Podemos actualizar nuestra Política de Privacidad periódicamente. Te recomendamos revisar esta página de vez en cuando para informarte sobre cualquier cambio. Los cambios entrarán en vigencia inmediatamente después de su publicación.</p>
-
-        <hr>
-
-        <h2>6. Contacto</h2>
-        <p>Si tienes alguna pregunta o sugerencia sobre esta Política de Privacidad, no dudes en ponerte en contacto con nosotros a través del correo electrónico del desarrollador proporcionado en la ficha de Google Play Store.</p>
-        
-        <div class="footer">
-            <p>&copy; 2026 KRYOX. Todos los derechos reservados.</p>
+    <!-- Header Navigation -->
+    <header>
+        <a href="index.html" class="logo">KRYOX<span>.</span></a>
+        <div class="nav-container">
+            <nav>
+                <a href="index.html" class="active" data-i18n="nav_home">Inicio</a>
+                <a href="privacy.html" data-i18n="nav_privacy">Privacidad</a>
+            </nav>
+            <div class="lang-switcher">
+                <button onclick="changeLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
+                <button onclick="changeLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+            </div>
         </div>
-    </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="tagline" data-i18n="tagline">Disponible en Google Play</span>
+        <h1 data-i18n="hero_title">Lleva tu <span>Entrenamiento, Fútbol y Salud</span> al siguiente nivel</h1>
+        <p class="hero-desc" data-i18n="hero_desc">Registra tus rutinas de gimnasio, estadísticas de partidos de fútbol, control de hidratación y peso corporal. Todo seguro, encriptado y guardado bajo tu control.</p>
+        <div class="cta-buttons">
+            <!-- link targets their exact package ID so it works immediately upon production release -->
+            <a href="https://play.google.com/store/apps/details?id=com.kryoxapp.kryox" class="btn-primary" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                <span data-i18n="btn_download">Descargar en Google Play</span>
+            </a>
+            <a href="privacy.html" class="btn-secondary" data-i18n="btn_privacy">Política de Privacidad</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="section-header">
+            <h2 data-i18n="features_title">Funciones Principales</h2>
+            <p data-i18n="features_subtitle">Diseñada con estética premium y atlética para acompañarte en tu progreso diario.</p>
+        </div>
+        <div class="features-grid">
+            <!-- Gym Tracker -->
+            <div class="feature-card">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18.5 5.5 3 3"/><path d="m15.5 2.5 3 3"/><path d="M5.5 18.5 8.5 21.5"/><path d="M2.5 15.5 5.5 18.5"/></svg>
+                </div>
+                <h3 data-i18n="feat_gym_title">Gimnasio & Rutinas</h3>
+                <p data-i18n="feat_gym_desc">Registra de manera ágil tus series, repeticiones y peso levantado. Organiza tus rutinas personalizadas y lleva el historial de tu progresión de cargas en cada ejercicio.</p>
+            </div>
+
+            <!-- Football -->
+            <div class="feature-card">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                </div>
+                <h3 data-i18n="feat_football_title">Estadísticas de Fútbol</h3>
+                <p data-i18n="feat_football_desc">Monitorea tu rendimiento en la cancha. Registra partidos jugados, tus goles anotados, asistencias clave y las valoraciones de cada partido para evaluar tu nivel futbolístico.</p>
+            </div>
+
+            <!-- Health Tracker -->
+            <div class="feature-card">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3 data-i18n="feat_health_title">Hábitos & Hidratación</h3>
+                <p data-i18n="feat_health_desc">Establece tus objetivos diarios de consumo de agua con recordatorios inteligentes y registra tu peso corporal regularmente para visualizar tu composición física a lo largo del tiempo.</p>
+            </div>
+
+            <!-- Cloud Sync -->
+            <div class="feature-card">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13v8"/><path d="m8 17 4 4 4-4"/><path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 8.58"/></svg>
+                </div>
+                <h3 data-i18n="feat_sync_title">Respaldo en la Nube</h3>
+                <p data-i18n="feat_sync_desc">¿Vas a cambiar de dispositivo? Sincroniza y respalda tu base de datos de manera opcional en tu propia cuenta de Google Drive en un espacio completamente encriptado e inaccesible para terceros.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Banner -->
+    <section class="privacy-banner">
+        <div class="banner-content">
+            <div class="banner-text">
+                <h2 data-i18n="priv_banner_title">Tus datos son tuyos. Punto.</h2>
+                <p data-i18n="priv_banner_desc">KRYOX almacena toda tu información localmente en tu dispositivo. No recopilamos, leemos ni almacenamos tus entrenamientos o datos de salud en servidores externos. Tú tienes el control absoluto de tus respaldos.</p>
+                <a href="privacy.html" class="btn-secondary" data-i18n="priv_banner_btn">Saber más sobre privacidad</a>
+            </div>
+            <div class="badge-lock">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <a href="index.html" class="footer-logo">KRYOX<span>.</span></a>
+        <div class="footer-links">
+            <a href="index.html" data-i18n="foot_home">Inicio</a>
+            <a href="privacy.html" data-i18n="foot_privacy">Política de Privacidad</a>
+            <a href="mailto:kryoxsupport@gmail.com" data-i18n="foot_support">Soporte</a>
+        </div>
+        <p class="copyright">&copy; 2026 KRYOX. <span data-i18n="copyright_text">Todos los derechos reservados.</span></p>
+    </footer>
+
+    <!-- Translations script -->
+    <script>
+        const translations = {
+            es: {
+                nav_home: "Inicio",
+                nav_privacy: "Privacidad",
+                tagline: "Disponible en Google Play",
+                hero_title: "Lleva tu <span>Entrenamiento, Fútbol y Salud</span> al siguiente nivel",
+                hero_desc: "Registra tus rutinas de gimnasio, estadísticas de partidos de fútbol, control de hidratación y peso corporal. Todo seguro, encriptado y guardado bajo tu control.",
+                btn_download: "Descargar en Google Play",
+                btn_privacy: "Política de Privacidad",
+                features_title: "Funciones Principales",
+                features_subtitle: "Diseñada con estética premium y atlética para acompañarte en tu progreso diario.",
+                feat_gym_title: "Gimnasio & Rutinas",
+                feat_gym_desc: "Registra de manera ágil tus series, repeticiones y peso levantado. Organiza tus rutinas personalizadas y lleva el historial de tu progresión de cargas en cada ejercicio.",
+                feat_football_title: "Estadísticas de Fútbol",
+                feat_football_desc: "Monitorea tu rendimiento en la cancha. Registra partidos jugados, tus goles anotados, asistencias clave y las valoraciones de cada partido para evaluar tu nivel futbolístico.",
+                feat_health_title: "Hábitos & Hidratación",
+                feat_health_desc: "Establece tus objetivos diarios de consumo de agua con recordatorios inteligentes y registra tu peso corporal regularmente para visualizar tu composición física a lo largo del tiempo.",
+                feat_sync_title: "Respaldo en la Nube",
+                feat_sync_desc: "¿Vas a cambiar de dispositivo? Sincroniza y respalda tu base de datos de manera opcional en tu propia cuenta de Google Drive en un espacio completamente encriptado e inaccesible para terceros.",
+                priv_banner_title: "Tus datos son tuyos. Punto.",
+                priv_banner_desc: "KRYOX almacena toda tu información localmente en tu dispositivo. No recopilamos, leemos ni almacenamos tus entrenamientos o datos de salud en servidores externos. Tú tienes el control absoluto de tus respaldos.",
+                priv_banner_btn: "Saber más sobre privacidad",
+                foot_home: "Inicio",
+                foot_privacy: "Política de Privacidad",
+                foot_support: "Soporte",
+                copyright_text: "Todos los derechos reservados."
+            },
+            en: {
+                nav_home: "Home",
+                nav_privacy: "Privacy",
+                tagline: "Available on Google Play",
+                hero_title: "Take your <span>Training, Football & Health</span> to the next level",
+                hero_desc: "Track your gym routines, football match stats, hydration, and body weight. Everything secure, encrypted, and stored under your full control.",
+                btn_download: "Download on Google Play",
+                btn_privacy: "Privacy Policy",
+                features_title: "Core Features",
+                features_subtitle: "Designed with a premium and athletic aesthetic to support your daily progress.",
+                feat_gym_title: "Gym & Routines",
+                feat_gym_desc: "Quickly track your sets, reps, and weight lifted. Organize custom routines and view the history of your progressive overload for each exercise.",
+                feat_football_title: "Football Stats",
+                feat_football_desc: "Monitor your performance on the pitch. Record games played, your goals, key assists, and match ratings to evaluate your football level.",
+                feat_health_title: "Habits & Hydration",
+                feat_health_desc: "Set your daily water intake goals with smart reminders and track your body weight regularly to visualize your body composition over time.",
+                feat_sync_title: "Cloud Backup",
+                feat_sync_desc: "Switching devices? Sinc and backup your database optionally on your own Google Drive account in a fully encrypted folder inaccessible to others.",
+                priv_banner_title: "Your data is yours. Period.",
+                priv_banner_desc: "KRYOX stores all your information locally on your device. We do not collect, read, or store your workouts or health data on external servers. You have absolute control of your backups.",
+                priv_banner_btn: "Learn more about privacy",
+                foot_home: "Home",
+                foot_privacy: "Privacy Policy",
+                foot_support: "Support",
+                copyright_text: "All rights reserved."
+            }
+        };
+
+        function changeLanguage(lang) {
+            // Update active buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${lang}`).classList.add('active');
+
+            // Set document lang attribute
+            document.documentElement.lang = lang;
+
+            // Translate elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    // Check if the original contains HTML structure (like span)
+                    if (translations[lang][key].includes('<span')) {
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Save choice
+            localStorage.setItem('kryox_pref_lang', lang);
+        }
+
+        // Initialize language
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('kryox_pref_lang');
+            const browserLang = navigator.language.substring(0, 2);
+            const defaultLang = savedLang || (translations[browserLang] ? browserLang : 'es');
+            changeLanguage(defaultLang);
+        });
+    </script>
 </body>
 </html>
