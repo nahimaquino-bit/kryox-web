@@ -362,7 +362,7 @@
         <div class="footer-links">
             <a href="index.html" data-i18n="foot_home">Inicio</a>
             <a href="privacy.html" data-i18n="foot_privacy">Política de Privacidad</a>
-            <a href="mailto:kryoxsupport@gmail.com" data-i18n="foot_support">Soporte</a>
+            <a href="#" onclick="copySupportEmail(event)" id="support-link" data-i18n="foot_support">Soporte</a>
         </div>
         <p class="copyright">&copy; 2026 KRYOX. <span data-i18n="copyright_text">Todos los derechos reservados.</span></p>
     </footer>
@@ -573,6 +573,24 @@
             const defaultLang = savedLang || (navTranslations[browserLang] ? browserLang : 'es');
             changeLanguage(defaultLang);
         });
+
+        function copySupportEmail(event) {
+            event.preventDefault();
+            const email = 'kryoxsupport@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const link = document.getElementById('support-link');
+                const originalText = link.textContent;
+                const isEn = document.documentElement.lang === 'en';
+                link.textContent = isEn ? 'Email copied!' : '¡Correo copiado!';
+                link.style.color = '#D4AF37'; // gold to highlight
+                setTimeout(() => {
+                    link.textContent = originalText;
+                    link.style.color = '';
+                }, 2000);
+            }).catch(err => {
+                window.location.href = 'mailto:kryoxsupport@gmail.com';
+            });
+        }
     </script>
 </body>
 </html>
