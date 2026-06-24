@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYOX - Política de Privacidad / Privacy Policy</title>
+    <meta name="description" content="Política de Privacidad de la aplicación KRYOX. Conoce cómo protegemos tus datos de entrenamiento, fútbol y salud.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --black: #000000;
+            --dark-blue-bg: #050B18; /* Deep obsidian blue from app_theme.dart */
+            --dark-blue-card: #0E1626; /* Navy card background from app_theme.dart */
+            --dark-pink: #E21B70; /* Athletic pink from app_theme.dart */
+            --gold: #D4AF37; /* Premium gold from app_theme.dart */
+            --white: #FFFFFF;
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--black);
+            background-image: radial-gradient(circle at 50% -20%, var(--dark-blue-bg) 0%, var(--black) 80%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Navigation */
+        header {
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--dark-pink);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color var(--transition-speed);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--white);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--dark-pink);
+            border-radius: 2px;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 5px 12px;
+            border-radius: 18px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .lang-btn.active {
+            background-color: var(--dark-pink);
+            color: var(--white);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--white);
+        }
+
+        /* Main Content Container */
+        .content-section {
+            min-height: 100vh;
+            padding: 140px 5% 80px 5%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .policy-container {
+            max-width: 850px;
+            width: 100%;
+            background: var(--dark-blue-card);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .last-update {
+            color: var(--dark-pink);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 30px 0;
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            color: var(--white);
+            margin: 40px 0 20px 0;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15%;
+            height: 70%;
+            width: 4px;
+            background-color: var(--dark-pink);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin: 25px 0 15px 0;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-bottom: 25px;
+            padding-left: 5px;
+        }
+
+        li {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+            line-height: 1.6;
+        }
+
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--dark-pink);
+            font-weight: bold;
+        }
+
+        code {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #02040a;
+            padding: 60px 5% 30px 5%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-logo span {
+            color: var(--dark-pink);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            color: rgba(148, 163, 184, 0.4);
+            font-size: 0.85rem;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 900px) {
+            .nav-container {
+                gap: 20px;
+            }
+            nav {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .policy-container {
+                padding: 30px 20px;
+            }
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            .content-section {
+                padding-top: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <a href="index.html" class="logo">KRYOX<span>.</span></a>
+        <div class="nav-container">
+            <nav>
+                <a href="index.html" data-i18n="nav_home">Inicio</a>
+                <a href="privacy.html" class="active" data-i18n="nav_privacy">Privacidad</a>
+            </nav>
+            <div class="lang-switcher">
+                <button onclick="changeLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
+                <button onclick="changeLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="content-section">
+        <div class="policy-container" id="policy-content">
+            <!-- Dynamic Content based on language JS injection -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <a href="index.html" class="footer-logo">KRYOX<span>.</span></a>
+        <div class="footer-links">
+            <a href="index.html" data-i18n="foot_home">Inicio</a>
+            <a href="privacy.html" data-i18n="foot_privacy">Política de Privacidad</a>
+            <a href="mailto:kryoxsupport@gmail.com" data-i18n="foot_support">Soporte</a>
+        </div>
+        <p class="copyright">&copy; 2026 KRYOX. <span data-i18n="copyright_text">Todos los derechos reservados.</span></p>
+    </footer>
+
+    <!-- Translations script -->
+    <script>
+        const navTranslations = {
+            es: {
+                nav_home: "Inicio",
+                nav_privacy: "Privacidad",
+                foot_home: "Inicio",
+                foot_privacy: "Política de Privacidad",
+                foot_support: "Soporte",
+                copyright_text: "Todos los derechos reservados."
+            },
+            en: {
+                nav_home: "Home",
+                nav_privacy: "Privacy",
+                foot_home: "Home",
+                foot_privacy: "Privacy Policy",
+                foot_support: "Support",
+                copyright_text: "All rights reserved."
+            }
+        };
+
+        const policyContent = {
+            es: `
+                <h1>Política de Privacidad de KRYOX</h1>
+                <span class="last-update">Última actualización: 15 de junio de 2026</span>
+                
+                <p class="intro">KRYOX (en adelante, "la Aplicación") es una herramienta de registro de entrenamientos, partidos de fútbol, control de hidratación y peso corporal. Respetamos y protegemos la privacidad de nuestros usuarios. Esta Política de Privacidad describe cómo se recopilan, utilizan y protegen los datos en la Aplicación.</p>
+                
+                <hr>
+
+                <h2>1. Recopilación y Uso de la Información</h2>
+                
+                <h3>A. Almacenamiento Local de Datos</h3>
+                <p>Toda la información que registras en la Aplicación se almacena de forma <strong>local y exclusiva en tu dispositivo</strong> a través de una base de datos privada:</p>
+                <ul>
+                    <li><strong>Entrenamientos:</strong> Ejercicios, series, repeticiones, peso levantado y notas asociadas.</li>
+                    <li><strong>Fútbol:</strong> Partidos registrados, goles, asistencias, calificaciones y estadísticas de juego.</li>
+                    <li><strong>Hábitos y Salud:</strong> Registro de consumo de agua (hidratación) y peso corporal diario/semanal.</li>
+                </ul>
+                <p>Esta información permanece en el almacenamiento seguro de tu dispositivo móvil y nosotros <strong>no tenemos acceso</strong> a ella.</p>
+
+                <h3>B. Copias de Seguridad en Google Drive (Opcional)</h3>
+                <p>La Aplicación ofrece una función para respaldar tus datos en la nube:</p>
+                <ul>
+                    <li>Si decides activar el servicio de <strong>Respaldo en la Nube</strong>, se te solicitará iniciar sesión con tu cuenta de Google.</li>
+                    <li>La Aplicación subirá una copia de tu base de datos local a tu propia cuenta personal de <strong>Google Drive</strong>, específicamente dentro de la carpeta segura destinada a datos de aplicaciones (<code>appDataFolder</code>).</li>
+                    <li>Este respaldo es privado y solo tú puedes acceder a él. Nosotros <strong>no recopilamos, leemos ni almacenamos</strong> tu información, tus credenciales de inicio de sesión o tus archivos de respaldo en ningún servidor externo.</li>
+                </ul>
+
+                <h3>C. Datos de Salud y Actividad Física (Health & Fitness Data)</h3>
+                <p>Los datos relacionados con tu actividad física, entrenamientos, hidratación y peso corporal se consideran datos personales sensibles y se tratan con los niveles de seguridad más altos. Estos datos se procesan y almacenan de forma <strong>estrictamente local</strong> en tu dispositivo (y de forma opcional en tu espacio privado de Google Drive si decides activar las copias de seguridad). <strong>KRYOX no comparte, transmite, vende ni utiliza esta información con fines comerciales, publicitarios o de análisis de terceros.</strong></p>
+
+                <h3>D. Procesamiento de Suscripciones y Compras</h3>
+                <p>Para habilitar las funciones Pro a través de un modelo freemium, la Aplicación utiliza servicios de facturación integrados:</p>
+                <ul>
+                    <li><strong>Google Play Billing:</strong> Las transacciones y pagos se procesan de forma segura directamente a través del sistema de facturación de Google Play Store.</li>
+                    <li><strong>RevenueCat:</strong> Para validar el estado de tu suscripción, se podrán recopilar metadatos técnicos de la transacción (como el identificador de la compra, fecha de vencimiento y estado activo). Estos datos se utilizan únicamente con el fin de validar y mantener activa tu suscripción Pro. Ninguno de estos servicios externos recopila ni tiene acceso a tus datos de salud, entrenamientos, peso o hidratación.</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. Permisos del Dispositivo</h2>
+                <p>Para funcionar correctamente, la Aplicación solicita los siguientes permisos en Android:</p>
+                <ul>
+                    <li><strong>Acceso a Internet (<code>INTERNET</code>):</strong> Requerido únicamente para conectar con Google Drive y realizar copias de seguridad o restauraciones de tus datos.</li>
+                    <li><strong>Permiso de Notificaciones (<code>POST_NOTIFICATIONS</code>):</strong> Requerido para enviarte alertas y recordatorios diarios sobre tu hidratación y control semanal de peso.</li>
+                    <li><strong>Permiso de Inicio (<code>RECEIVE_BOOT_COMPLETED</code>):</strong> Requerido para volver a configurar tus recordatorios de hidratación automáticamente si tu teléfono se reinicia.</li>
+                </ul>
+
+                <hr>
+
+                <h2>3. Intercambio y Divulgación de Datos</h2>
+                <p><strong>No compartimos, vendemos, alquilamos ni divulgamos</strong> ninguno de tus datos personales o de uso con terceras empresas ni anunciantes. Toda la transmisión de datos ocurre de forma directa y cifrada entre tu dispositivo y los servidores de Google (al usar la sincronización de Google Drive).</p>
+
+                <hr>
+
+                <h2>4. Retención y Eliminación de Datos</h2>
+                <p>Dado que todos tus datos se almacenan localmente en tu dispositivo o en tu espacio personal de Google Drive, tienes control absoluto sobre ellos:</p>
+                
+                <h3>Solicitud de Eliminación de Cuenta y Datos Asociados</h3>
+                <p>Si deseas solicitar la eliminación definitiva de tu cuenta y los datos de copia de seguridad asociados a KRYOX, puedes hacerlo de las siguientes maneras:</p>
+                <ul>
+                    <li><strong>Borrado Selectivo en la App:</strong> Puedes eliminar de forma individual cualquier registro específico (como rutinas, historial, registros de peso o consumo de agua) directamente desde la pantalla correspondiente dentro de la Aplicación en cualquier momento.</li>
+                    <li><strong>Desde la Aplicación:</strong> Puedes desconectar tu cuenta de Google desde la configuración de perfil de la Aplicación. Esto revocará el acceso a tu espacio de Google Drive y podrás borrar los archivos de respaldo directamente.</li>
+                    <li><strong>Eliminación Local:</strong> Para borrar toda tu información local de entrenamientos, peso e hidratación, basta con desinstalar la Aplicación desde los ajustes de tu dispositivo móvil.</li>
+                    <li><strong>Solicitud de Eliminación por Correo:</strong> Puedes solicitar la eliminación definitiva de tu copia de seguridad de la nube enviando un correo electrónico a nuestro buzón de atención: <strong>kryoxsupport@gmail.com</strong>. Procesaremos tu solicitud en un plazo máximo de 72 horas.</li>
+                </ul>
+
+                <hr>
+
+                <h2>5. Cambios a esta Política de Privacidad</h2>
+                <p>Podemos actualizar nuestra Política de Privacidad periódicamente. Te recomendamos revisar esta página de vez en cuando para informarte sobre cualquier cambio. Los cambios entrarán en vigencia inmediatamente después de su publicación.</p>
+
+                <hr>
+
+                <h2>6. Contacto</h2>
+                <p>Si tienes alguna pregunta o sugerencia sobre esta Política de Privacidad, no dudes en ponerte en contacto con nosotros a través de nuestro correo electrónico de atención: <strong>kryoxsupport@gmail.com</strong>.</p>
+            `,
+            en: `
+                <h1>KRYOX Privacy Policy</h1>
+                <span class="last-update">Last updated: June 15, 2026</span>
+                
+                <p class="intro">KRYOX (hereinafter, "the Application") is a tool for tracking workouts, football matches, hydration, and body weight. We respect and protect the privacy of our users. This Privacy Policy describes how data is collected, used, and protected within the Application.</p>
+                
+                <hr>
+
+                <h2>1. Information Collection and Use</h2>
+                
+                <h3>A. Local Data Storage</h3>
+                <p>All information you record in the Application is stored <strong>locally and exclusively on your device</strong> through a private database:</p>
+                <ul>
+                    <li><strong>Workouts:</strong> Exercises, sets, repetitions, weight lifted, and associated notes.</li>
+                    <li><strong>Football:</strong> Registered matches, goals, assists, ratings, and game statistics.</li>
+                    <li><strong>Habits and Health:</strong> Water intake logs (hydration) and daily/weekly body weight.</li>
+                </ul>
+                <p>This information remains in the secure storage of your mobile device, and we <strong>do not have access</strong> to it.</p>
+
+                <h3>B. Google Drive Backups (Optional)</h3>
+                <p>The Application offers a feature to backup your data in the cloud:</p>
+                <ul>
+                    <li>If you choose to enable the <strong>Cloud Backup</strong> service, you will be prompted to sign in with your Google account.</li>
+                    <li>The Application will upload a copy of your local database to your own personal <strong>Google Drive</strong> account, specifically inside the secure application data folder (<code>appDataFolder</code>).</li>
+                    <li>This backup is private, and only you can access it. We <strong>do not collect, read, or store</strong> your information, login credentials, or backup files on any external server.</li>
+                </ul>
+
+                <h3>C. Health & Fitness Data</h3>
+                <p>Data related to your physical activity, workouts, hydration, and body weight are considered sensitive personal data and are treated with the highest security levels. This data is processed and stored <strong>strictly locally</strong> on your device (and optionally in your private Google Drive space if you choose to enable backups). <strong>KRYOX does not share, transmit, sell, or use this information for commercial, advertising, or third-party analysis purposes.</strong></p>
+
+                <h3>D. Subscription and Purchase Processing</h3>
+                <p>To enable Pro features through a freemium model, the Application uses integrated billing services:</p>
+                <ul>
+                    <li><strong>Google Play Billing:</strong> Transactions and payments are securely processed directly through the Google Play Store billing system.</li>
+                    <li><strong>Receipt Verification Providers (RevenueCat):</strong> If the Application uses a third-party service like RevenueCat to validate the status of your subscription, technical transaction metadata (such as purchase identifier, expiration date, and active status) may be collected. This data is used solely for the purpose of validating and maintaining your active Pro subscription. None of these external services collect or have access to your health, workout, weight, or hydration data.</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. Device Permissions</h2>
+                <p>To function properly, the Application requests the following permissions on Android:</p>
+                <ul>
+                    <li><strong>Internet Access (<code>INTERNET</code>):</strong> Required only to connect with Google Drive and perform backups or restores of your data.</li>
+                    <li><strong>Notification Permission (<code>POST_NOTIFICATIONS</code>):</strong> Required to send you alerts and daily reminders about your hydration and weekly weight control.</li>
+                    <li><strong>Start Permission (<code>RECEIVE_BOOT_COMPLETED</code>):</strong> Required to automatically reconfigure your hydration reminders if your phone restarts.</li>
+                </ul>
+
+                <hr>
+
+                <h2>3. Data Sharing and Disclosure</h2>
+                <p><strong>We do not share, sell, rent, or disclose</strong> any of your personal or usage data to third-party companies or advertisers. All data transmission occurs directly and encrypted between your device and Google's servers (when using Google Drive synchronization).</p>
+
+                <hr>
+
+                <h2>4. Data Retention and Deletion</h2>
+                <p>Since all your data is stored locally on your device or in your personal Google Drive space, you have absolute control over them:</p>
+                
+                <h3>Account and Associated Data Deletion Request</h3>
+                <p>If you wish to request the permanent deletion of your account and the backup data associated with KRYOX, you can do so in the following ways:</p>
+                <ul>
+                    <li><strong>Selective In-App Deletion:</strong> You can individually delete any specific record (such as routines, history, weight records, or water intake) directly from the corresponding screen in the Application at any time.</li>
+                    <li><strong>From the Application:</strong> You can disconnect your Google account from the Application's profile settings. This will revoke access to your Google Drive space, and you can delete the backup files directly.</li>
+                    <li><strong>Local Deletion:</strong> To delete all your local data of workouts, weight, and hydration, simply uninstall the Application from your mobile device settings.</li>
+                    <li><strong>Deletion Request via Email:</strong> You can request the permanent deletion of your cloud backup by sending an email to our developer support inbox: <strong>kryoxsupport@gmail.com</strong>. We will process your request within 72 hours.</li>
+                </ul>
+
+                <hr>
+
+                <h2>5. Changes to this Privacy Policy</h2>
+                <p>We may update our Privacy Policy periodically. We recommend that you review this page from time to time to stay informed of any changes. Changes will take effect immediately upon publication.</p>
+
+                <hr>
+
+                <h2>6. Contact</h2>
+                <p>If you have any questions or suggestions about this Privacy Policy, feel free to contact us at our developer support inbox: <strong>kryoxsupport@gmail.com</strong>.</p>
+            `
+        };
+
+        function changeLanguage(lang) {
+            // Update active buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${lang}`).classList.add('active');
+
+            // Set document lang attribute
+            document.documentElement.lang = lang;
+
+            // Translate navigation elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (navTranslations[lang][key]) {
+                    element.textContent = navTranslations[lang][key];
+                }
+            });
+
+            // Translate main policy block
+            document.getElementById('policy-content').innerHTML = policyContent[lang];
+
+            // Save choice
+            localStorage.setItem('kryox_pref_lang', lang);
+        }
+
+        // Initialize language
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('kryox_pref_lang');
+            const browserLang = navigator.language.substring(0, 2);
+            const defaultLang = savedLang || (navTranslations[browserLang] ? browserLang : 'es');
+            changeLanguage(defaultLang);
+        });
+    </script>
+</body>
+</html>
